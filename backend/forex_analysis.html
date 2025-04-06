@@ -1,0 +1,2226 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Forex Analysis Report</title>
+        <style>
+            body {
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                background-color: #1e1e2e;
+                color: #e0e0e0;
+                margin: 0;
+                padding: 20px;
+            }
+            .container {
+                max-width: 1200px;
+                margin: 0 auto;
+            }
+            header {
+                background-color: #2d2d44;
+                padding: 20px;
+                margin-bottom: 30px;
+                border-radius: 8px;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+                text-align: center;
+            }
+            h1 {
+                margin: 0;
+                color: #ffffff;
+                font-size: 28px;
+            }
+            .pair-card {
+                background-color: #2d2d44;
+                border-radius: 8px;
+                padding: 20px;
+                margin-bottom: 20px;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            }
+            .pair-header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                border-bottom: 1px solid #444;
+                padding-bottom: 15px;
+                margin-bottom: 15px;
+            }
+            .pair-name {
+                font-size: 24px;
+                font-weight: bold;
+            }
+            .sentiment-badge {
+                padding: 6px 12px;
+                border-radius: 20px;
+                font-weight: bold;
+                font-size: 14px;
+                color: #000;
+            }
+            .forecast-section {
+                background-color: #383852;
+                border-radius: 8px;
+                padding: 15px;
+                margin-bottom: 15px;
+            }
+            .forecast-title {
+                font-size: 18px;
+                font-weight: bold;
+                margin-bottom: 10px;
+                color: #b8b8ff;
+            }
+            .price-grid {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+            }
+            .price-item {
+                background-color: #2a2a40;
+                padding: 10px;
+                border-radius: 6px;
+            }
+            .price-label {
+                font-size: 12px;
+                color: #9e9eb3;
+            }
+            .price-value {
+                font-size: 18px;
+                font-weight: bold;
+            }
+            .zones-section {
+                background-color: #383852;
+                border-radius: 8px;
+                padding: 15px;
+            }
+            .zone-item {
+                padding: 12px;
+                border-radius: 6px;
+                margin-bottom: 10px;
+            }
+            .zone-header {
+                display: flex;
+                justify-content: space-between;
+                margin-bottom: 8px;
+                font-weight: bold;
+            }
+            .zone-strategy {
+                background-color: rgba(0, 0, 0, 0.2);
+                padding: 8px;
+                border-radius: 4px;
+                font-style: italic;
+                margin-top: 8px;
+            }
+            .gauge-container {
+                display: flex;
+                justify-content: center;
+                margin: 10px 0;
+            }
+            .positive {
+                color: #00ff00;
+            }
+            .negative {
+                color: #ff5252;
+            }
+            .neutral {
+                color: #e0e0e0;
+            }
+            .grid-container {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+                gap: 20px;
+            }
+            @media (max-width: 768px) {
+                .grid-container {
+                    grid-template-columns: 1fr;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <header>
+                <h1>Weekly Forex Predictions with H4 Supply and Demand Zones</h1>
+                <p>Based on COT data analysis and historical performance patterns</p>
+            </header>
+            
+            <div class="grid-container">
+    
+            <div class="pair-card">
+                <div class="pair-header">
+                    <div class="pair-name">EUR/AUD</div>
+                    <div class="sentiment-badge" style="background-color: #52ff6a;">Bullish</div>
+                </div>
+                
+                <div class="gauge-container">
+                    
+    <svg xmlns="http://www.w3.org/2000/svg" width="160" height="100" viewBox="0 0 160 100">
+        <!-- Background path completely removed -->
+        
+        <!-- Gauge color ranges: red for negative, green for positive -->
+        <path d="M 20 50 A 60 60 0 0 1 80 10" stroke="#ff0000" stroke-width="10" fill="none" />
+        <path d="M 80 10 A 60 60 0 0 1 140 50" stroke="#00ff00" stroke-width="10" fill="none" />
+        
+        <!-- Gauge needle -->
+        <line x1="80" y1="50" x2="90.55496448696789" y2="11.41771488521129" 
+              stroke="#ffffff" stroke-width="2" />
+        <circle cx="80" cy="50" r="5" fill="#ffffff" />
+        
+        <!-- Score value displayed below the needle -->
+        <text x="80" y="75" text-anchor="middle" font-size="12" fill="#ffffff">17</text>
+        
+        <!-- Scale labels -->
+        <text x="20" y="65" text-anchor="middle" font-size="10" fill="#ff0000">-100</text>
+        <text x="140" y="65" text-anchor="middle" font-size="10" fill="#00ff00">+100</text>
+    </svg>
+    
+                </div>
+        
+                <div class="forecast-section">
+                    <div class="forecast-title">Weekly Forecast</div>
+                    <div class="price-grid">
+                        <div class="price-item">
+                            <div class="price-label">Open</div>
+                            <div class="price-value">1.81407</div>
+                        </div>
+                        <div class="price-item">
+                            <div class="price-label">High</div>
+                            <div class="price-value positive">1.83973</div>
+                        </div>
+                        <div class="price-item">
+                            <div class="price-label">Low</div>
+                            <div class="price-value negative">1.80571</div>
+                        </div>
+                        <div class="price-item">
+                            <div class="price-label">Close</div>
+                            <div class="price-value" style="color: #52ff6a;">1.83508</div>
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="zones-section">
+                    <div class="forecast-title">H4 Supply and Demand Zones</div>
+                    <p>Weekly Bias: <span style="color: #52ff6a; font-weight: bold;">Bullish</span></p>
+                
+                    <div class="zone-item" style="background-color: #00c70020; border-left: 4px solid #00c700;">
+                        <div class="zone-header">
+                            <div style="color: #00c700;">Strong Demand</div>
+                            <div>1.80571 - 1.81592</div>
+                        </div>
+                        <div>Primary buy zone with strongest bullish bias</div>
+                        <div class="zone-strategy">Buy on H4 bullish confirmation patterns in this zone</div>
+                    </div>
+                    
+                    <div class="zone-item" style="background-color: #5aff5a20; border-left: 4px solid #5aff5a;">
+                        <div class="zone-header">
+                            <div style="color: #5aff5a;">Moderate Demand</div>
+                            <div>1.81592 - 1.82272</div>
+                        </div>
+                        <div>Secondary buy zone with moderate bullish bias</div>
+                        <div class="zone-strategy">Buy on H4 rejection of this zone with strong momentum</div>
+                    </div>
+                    
+                    <div class="zone-item" style="background-color: #ff9e9e20; border-left: 4px solid #ff9e9e;">
+                        <div class="zone-header">
+                            <div style="color: #ff9e9e;">Supply</div>
+                            <div>1.82952 - 1.83973</div>
+                        </div>
+                        <div>Potential resistance/take profit zone</div>
+                        <div class="zone-strategy">Take profits or reduce position size in this zone</div>
+                    </div>
+                    </div></div>
+            <div class="pair-card">
+                <div class="pair-header">
+                    <div class="pair-name">GBP/AUD</div>
+                    <div class="sentiment-badge" style="background-color: #9effae;">Slightly Bullish</div>
+                </div>
+                
+                <div class="gauge-container">
+                    
+    <svg xmlns="http://www.w3.org/2000/svg" width="160" height="100" viewBox="0 0 160 100">
+        <!-- Background path completely removed -->
+        
+        <!-- Gauge color ranges: red for negative, green for positive -->
+        <path d="M 20 50 A 60 60 0 0 1 80 10" stroke="#ff0000" stroke-width="10" fill="none" />
+        <path d="M 80 10 A 60 60 0 0 1 140 50" stroke="#00ff00" stroke-width="10" fill="none" />
+        
+        <!-- Gauge needle -->
+        <line x1="80" y1="50" x2="88.72577419839946" y2="10.96333947891359" 
+              stroke="#ffffff" stroke-width="2" />
+        <circle cx="80" cy="50" r="5" fill="#ffffff" />
+        
+        <!-- Score value displayed below the needle -->
+        <text x="80" y="75" text-anchor="middle" font-size="12" fill="#ffffff">14</text>
+        
+        <!-- Scale labels -->
+        <text x="20" y="65" text-anchor="middle" font-size="10" fill="#ff0000">-100</text>
+        <text x="140" y="65" text-anchor="middle" font-size="10" fill="#00ff00">+100</text>
+    </svg>
+    
+                </div>
+        
+                <div class="forecast-section">
+                    <div class="forecast-title">Weekly Forecast</div>
+                    <div class="price-grid">
+                        <div class="price-item">
+                            <div class="price-label">Open</div>
+                            <div class="price-value">2.1348</div>
+                        </div>
+                        <div class="price-item">
+                            <div class="price-label">High</div>
+                            <div class="price-value positive">2.16086</div>
+                        </div>
+                        <div class="price-item">
+                            <div class="price-label">Low</div>
+                            <div class="price-value negative">2.12514</div>
+                        </div>
+                        <div class="price-item">
+                            <div class="price-label">Close</div>
+                            <div class="price-value" style="color: #52ff6a;">2.15276</div>
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="zones-section">
+                    <div class="forecast-title">H4 Supply and Demand Zones</div>
+                    <p>Weekly Bias: <span style="color: #52ff6a; font-weight: bold;">Bullish</span></p>
+                
+                    <div class="zone-item" style="background-color: #00c70020; border-left: 4px solid #00c700;">
+                        <div class="zone-header">
+                            <div style="color: #00c700;">Strong Demand</div>
+                            <div>2.12514 - 2.13586</div>
+                        </div>
+                        <div>Primary buy zone with strongest bullish bias</div>
+                        <div class="zone-strategy">Buy on H4 bullish confirmation patterns in this zone</div>
+                    </div>
+                    
+                    <div class="zone-item" style="background-color: #5aff5a20; border-left: 4px solid #5aff5a;">
+                        <div class="zone-header">
+                            <div style="color: #5aff5a;">Moderate Demand</div>
+                            <div>2.13586 - 2.143</div>
+                        </div>
+                        <div>Secondary buy zone with moderate bullish bias</div>
+                        <div class="zone-strategy">Buy on H4 rejection of this zone with strong momentum</div>
+                    </div>
+                    
+                    <div class="zone-item" style="background-color: #ff9e9e20; border-left: 4px solid #ff9e9e;">
+                        <div class="zone-header">
+                            <div style="color: #ff9e9e;">Supply</div>
+                            <div>2.15014 - 2.16086</div>
+                        </div>
+                        <div>Potential resistance/take profit zone</div>
+                        <div class="zone-strategy">Take profits or reduce position size in this zone</div>
+                    </div>
+                    </div></div>
+            <div class="pair-card">
+                <div class="pair-header">
+                    <div class="pair-name">EUR/NZD</div>
+                    <div class="sentiment-badge" style="background-color: #9effae;">Slightly Bullish</div>
+                </div>
+                
+                <div class="gauge-container">
+                    
+    <svg xmlns="http://www.w3.org/2000/svg" width="160" height="100" viewBox="0 0 160 100">
+        <!-- Background path completely removed -->
+        
+        <!-- Gauge color ranges: red for negative, green for positive -->
+        <path d="M 20 50 A 60 60 0 0 1 80 10" stroke="#ff0000" stroke-width="10" fill="none" />
+        <path d="M 80 10 A 60 60 0 0 1 140 50" stroke="#00ff00" stroke-width="10" fill="none" />
+        
+        <!-- Gauge needle -->
+        <line x1="80" y1="50" x2="87.49529845936253" y2="10.708518722182568" 
+              stroke="#ffffff" stroke-width="2" />
+        <circle cx="80" cy="50" r="5" fill="#ffffff" />
+        
+        <!-- Score value displayed below the needle -->
+        <text x="80" y="75" text-anchor="middle" font-size="12" fill="#ffffff">12</text>
+        
+        <!-- Scale labels -->
+        <text x="20" y="65" text-anchor="middle" font-size="10" fill="#ff0000">-100</text>
+        <text x="140" y="65" text-anchor="middle" font-size="10" fill="#00ff00">+100</text>
+    </svg>
+    
+                </div>
+        
+                <div class="forecast-section">
+                    <div class="forecast-title">Weekly Forecast</div>
+                    <div class="price-grid">
+                        <div class="price-item">
+                            <div class="price-label">Open</div>
+                            <div class="price-value">1.95845</div>
+                        </div>
+                        <div class="price-item">
+                            <div class="price-label">High</div>
+                            <div class="price-value positive">1.98207</div>
+                        </div>
+                        <div class="price-item">
+                            <div class="price-label">Low</div>
+                            <div class="price-value negative">1.94951</div>
+                        </div>
+                        <div class="price-item">
+                            <div class="price-label">Close</div>
+                            <div class="price-value" style="color: #52ff6a;">1.97233</div>
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="zones-section">
+                    <div class="forecast-title">H4 Supply and Demand Zones</div>
+                    <p>Weekly Bias: <span style="color: #52ff6a; font-weight: bold;">Bullish</span></p>
+                
+                    <div class="zone-item" style="background-color: #00c70020; border-left: 4px solid #00c700;">
+                        <div class="zone-header">
+                            <div style="color: #00c700;">Strong Demand</div>
+                            <div>1.94951 - 1.95928</div>
+                        </div>
+                        <div>Primary buy zone with strongest bullish bias</div>
+                        <div class="zone-strategy">Buy on H4 bullish confirmation patterns in this zone</div>
+                    </div>
+                    
+                    <div class="zone-item" style="background-color: #5aff5a20; border-left: 4px solid #5aff5a;">
+                        <div class="zone-header">
+                            <div style="color: #5aff5a;">Moderate Demand</div>
+                            <div>1.95928 - 1.96579</div>
+                        </div>
+                        <div>Secondary buy zone with moderate bullish bias</div>
+                        <div class="zone-strategy">Buy on H4 rejection of this zone with strong momentum</div>
+                    </div>
+                    
+                    <div class="zone-item" style="background-color: #ff9e9e20; border-left: 4px solid #ff9e9e;">
+                        <div class="zone-header">
+                            <div style="color: #ff9e9e;">Supply</div>
+                            <div>1.9723 - 1.98207</div>
+                        </div>
+                        <div>Potential resistance/take profit zone</div>
+                        <div class="zone-strategy">Take profits or reduce position size in this zone</div>
+                    </div>
+                    </div></div>
+            <div class="pair-card">
+                <div class="pair-header">
+                    <div class="pair-name">GBP/NZD</div>
+                    <div class="sentiment-badge" style="background-color: #9effae;">Slightly Bullish</div>
+                </div>
+                
+                <div class="gauge-container">
+                    
+    <svg xmlns="http://www.w3.org/2000/svg" width="160" height="100" viewBox="0 0 160 100">
+        <!-- Background path completely removed -->
+        
+        <!-- Gauge color ranges: red for negative, green for positive -->
+        <path d="M 20 50 A 60 60 0 0 1 80 10" stroke="#ff0000" stroke-width="10" fill="none" />
+        <path d="M 80 10 A 60 60 0 0 1 140 50" stroke="#00ff00" stroke-width="10" fill="none" />
+        
+        <!-- Gauge needle -->
+        <line x1="80" y1="50" x2="85.63609709102266" y2="10.399060496238654" 
+              stroke="#ffffff" stroke-width="2" />
+        <circle cx="80" cy="50" r="5" fill="#ffffff" />
+        
+        <!-- Score value displayed below the needle -->
+        <text x="80" y="75" text-anchor="middle" font-size="12" fill="#ffffff">9</text>
+        
+        <!-- Scale labels -->
+        <text x="20" y="65" text-anchor="middle" font-size="10" fill="#ff0000">-100</text>
+        <text x="140" y="65" text-anchor="middle" font-size="10" fill="#00ff00">+100</text>
+    </svg>
+    
+                </div>
+        
+                <div class="forecast-section">
+                    <div class="forecast-title">Weekly Forecast</div>
+                    <div class="price-grid">
+                        <div class="price-item">
+                            <div class="price-label">Open</div>
+                            <div class="price-value">2.30462</div>
+                        </div>
+                        <div class="price-item">
+                            <div class="price-label">High</div>
+                            <div class="price-value positive">2.32956</div>
+                        </div>
+                        <div class="price-item">
+                            <div class="price-label">Low</div>
+                            <div class="price-value negative">2.29397</div>
+                        </div>
+                        <div class="price-item">
+                            <div class="price-label">Close</div>
+                            <div class="price-value" style="color: #52ff6a;">2.31584</div>
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="zones-section">
+                    <div class="forecast-title">H4 Supply and Demand Zones</div>
+                    <p>Weekly Bias: <span style="color: #52ff6a; font-weight: bold;">Bullish</span></p>
+                
+                    <div class="zone-item" style="background-color: #00c70020; border-left: 4px solid #00c700;">
+                        <div class="zone-header">
+                            <div style="color: #00c700;">Strong Demand</div>
+                            <div>2.29397 - 2.30465</div>
+                        </div>
+                        <div>Primary buy zone with strongest bullish bias</div>
+                        <div class="zone-strategy">Buy on H4 bullish confirmation patterns in this zone</div>
+                    </div>
+                    
+                    <div class="zone-item" style="background-color: #5aff5a20; border-left: 4px solid #5aff5a;">
+                        <div class="zone-header">
+                            <div style="color: #5aff5a;">Moderate Demand</div>
+                            <div>2.30465 - 2.31176</div>
+                        </div>
+                        <div>Secondary buy zone with moderate bullish bias</div>
+                        <div class="zone-strategy">Buy on H4 rejection of this zone with strong momentum</div>
+                    </div>
+                    
+                    <div class="zone-item" style="background-color: #ff9e9e20; border-left: 4px solid #ff9e9e;">
+                        <div class="zone-header">
+                            <div style="color: #ff9e9e;">Supply</div>
+                            <div>2.31888 - 2.32956</div>
+                        </div>
+                        <div>Potential resistance/take profit zone</div>
+                        <div class="zone-strategy">Take profits or reduce position size in this zone</div>
+                    </div>
+                    </div></div>
+            <div class="pair-card">
+                <div class="pair-header">
+                    <div class="pair-name">EUR/GBP</div>
+                    <div class="sentiment-badge" style="background-color: #9effae;">Slightly Bullish</div>
+                </div>
+                
+                <div class="gauge-container">
+                    
+    <svg xmlns="http://www.w3.org/2000/svg" width="160" height="100" viewBox="0 0 160 100">
+        <!-- Background path completely removed -->
+        
+        <!-- Gauge color ranges: red for negative, green for positive -->
+        <path d="M 20 50 A 60 60 0 0 1 80 10" stroke="#ff0000" stroke-width="10" fill="none" />
+        <path d="M 80 10 A 60 60 0 0 1 140 50" stroke="#00ff00" stroke-width="10" fill="none" />
+        
+        <!-- Gauge needle -->
+        <line x1="80" y1="50" x2="83.13841409189487" y2="10.123310606473417" 
+              stroke="#ffffff" stroke-width="2" />
+        <circle cx="80" cy="50" r="5" fill="#ffffff" />
+        
+        <!-- Score value displayed below the needle -->
+        <text x="80" y="75" text-anchor="middle" font-size="12" fill="#ffffff">5</text>
+        
+        <!-- Scale labels -->
+        <text x="20" y="65" text-anchor="middle" font-size="10" fill="#ff0000">-100</text>
+        <text x="140" y="65" text-anchor="middle" font-size="10" fill="#00ff00">+100</text>
+    </svg>
+    
+                </div>
+        
+                <div class="forecast-section">
+                    <div class="forecast-title">Weekly Forecast</div>
+                    <div class="price-grid">
+                        <div class="price-item">
+                            <div class="price-label">Open</div>
+                            <div class="price-value">0.8498</div>
+                        </div>
+                        <div class="price-item">
+                            <div class="price-label">High</div>
+                            <div class="price-value positive">0.8547</div>
+                        </div>
+                        <div class="price-item">
+                            <div class="price-label">Low</div>
+                            <div class="price-value negative">0.84645</div>
+                        </div>
+                        <div class="price-item">
+                            <div class="price-label">Close</div>
+                            <div class="price-value" style="color: #52ff6a;">0.85122</div>
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="zones-section">
+                    <div class="forecast-title">H4 Supply and Demand Zones</div>
+                    <p>Weekly Bias: <span style="color: #52ff6a; font-weight: bold;">Bullish</span></p>
+                
+                    <div class="zone-item" style="background-color: #00c70020; border-left: 4px solid #00c700;">
+                        <div class="zone-header">
+                            <div style="color: #00c700;">Strong Demand</div>
+                            <div>0.84645 - 0.84892</div>
+                        </div>
+                        <div>Primary buy zone with strongest bullish bias</div>
+                        <div class="zone-strategy">Buy on H4 bullish confirmation patterns in this zone</div>
+                    </div>
+                    
+                    <div class="zone-item" style="background-color: #5aff5a20; border-left: 4px solid #5aff5a;">
+                        <div class="zone-header">
+                            <div style="color: #5aff5a;">Moderate Demand</div>
+                            <div>0.84892 - 0.85058</div>
+                        </div>
+                        <div>Secondary buy zone with moderate bullish bias</div>
+                        <div class="zone-strategy">Buy on H4 rejection of this zone with strong momentum</div>
+                    </div>
+                    
+                    <div class="zone-item" style="background-color: #ff9e9e20; border-left: 4px solid #ff9e9e;">
+                        <div class="zone-header">
+                            <div style="color: #ff9e9e;">Supply</div>
+                            <div>0.85222 - 0.8547</div>
+                        </div>
+                        <div>Potential resistance/take profit zone</div>
+                        <div class="zone-strategy">Take profits or reduce position size in this zone</div>
+                    </div>
+                    </div></div>
+            <div class="pair-card">
+                <div class="pair-header">
+                    <div class="pair-name">EUR/USD</div>
+                    <div class="sentiment-badge" style="background-color: #e0e0e0;">Neutral</div>
+                </div>
+                
+                <div class="gauge-container">
+                    
+    <svg xmlns="http://www.w3.org/2000/svg" width="160" height="100" viewBox="0 0 160 100">
+        <!-- Background path completely removed -->
+        
+        <!-- Gauge color ranges: red for negative, green for positive -->
+        <path d="M 20 50 A 60 60 0 0 1 80 10" stroke="#ff0000" stroke-width="10" fill="none" />
+        <path d="M 80 10 A 60 60 0 0 1 140 50" stroke="#00ff00" stroke-width="10" fill="none" />
+        
+        <!-- Gauge needle -->
+        <line x1="80" y1="50" x2="82.51167162955848" y2="10.07893406201093" 
+              stroke="#ffffff" stroke-width="2" />
+        <circle cx="80" cy="50" r="5" fill="#ffffff" />
+        
+        <!-- Score value displayed below the needle -->
+        <text x="80" y="75" text-anchor="middle" font-size="12" fill="#ffffff">4</text>
+        
+        <!-- Scale labels -->
+        <text x="20" y="65" text-anchor="middle" font-size="10" fill="#ff0000">-100</text>
+        <text x="140" y="65" text-anchor="middle" font-size="10" fill="#00ff00">+100</text>
+    </svg>
+    
+                </div>
+        
+                <div class="forecast-section">
+                    <div class="forecast-title">Weekly Forecast</div>
+                    <div class="price-grid">
+                        <div class="price-item">
+                            <div class="price-label">Open</div>
+                            <div class="price-value">1.09618</div>
+                        </div>
+                        <div class="price-item">
+                            <div class="price-label">High</div>
+                            <div class="price-value positive">1.11119</div>
+                        </div>
+                        <div class="price-item">
+                            <div class="price-label">Low</div>
+                            <div class="price-value negative">1.08968</div>
+                        </div>
+                        <div class="price-item">
+                            <div class="price-label">Close</div>
+                            <div class="price-value" style="color: #52ff6a;">1.09909</div>
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="zones-section">
+                    <div class="forecast-title">H4 Supply and Demand Zones</div>
+                    <p>Weekly Bias: <span style="color: #52ff6a; font-weight: bold;">Bullish</span></p>
+                
+                    <div class="zone-item" style="background-color: #00c70020; border-left: 4px solid #00c700;">
+                        <div class="zone-header">
+                            <div style="color: #00c700;">Strong Demand</div>
+                            <div>1.08968 - 1.09613</div>
+                        </div>
+                        <div>Primary buy zone with strongest bullish bias</div>
+                        <div class="zone-strategy">Buy on H4 bullish confirmation patterns in this zone</div>
+                    </div>
+                    
+                    <div class="zone-item" style="background-color: #5aff5a20; border-left: 4px solid #5aff5a;">
+                        <div class="zone-header">
+                            <div style="color: #5aff5a;">Moderate Demand</div>
+                            <div>1.09613 - 1.10044</div>
+                        </div>
+                        <div>Secondary buy zone with moderate bullish bias</div>
+                        <div class="zone-strategy">Buy on H4 rejection of this zone with strong momentum</div>
+                    </div>
+                    
+                    <div class="zone-item" style="background-color: #ff9e9e20; border-left: 4px solid #ff9e9e;">
+                        <div class="zone-header">
+                            <div style="color: #ff9e9e;">Supply</div>
+                            <div>1.10474 - 1.11119</div>
+                        </div>
+                        <div>Potential resistance/take profit zone</div>
+                        <div class="zone-strategy">Take profits or reduce position size in this zone</div>
+                    </div>
+                    </div></div>
+            <div class="pair-card">
+                <div class="pair-header">
+                    <div class="pair-name">GBP/USD</div>
+                    <div class="sentiment-badge" style="background-color: #e0e0e0;">Neutral</div>
+                </div>
+                
+                <div class="gauge-container">
+                    
+    <svg xmlns="http://www.w3.org/2000/svg" width="160" height="100" viewBox="0 0 160 100">
+        <!-- Background path completely removed -->
+        
+        <!-- Gauge color ranges: red for negative, green for positive -->
+        <path d="M 20 50 A 60 60 0 0 1 80 10" stroke="#ff0000" stroke-width="10" fill="none" />
+        <path d="M 80 10 A 60 60 0 0 1 140 50" stroke="#00ff00" stroke-width="10" fill="none" />
+        
+        <!-- Gauge needle -->
+        <line x1="80" y1="50" x2="78.74362374339633" y2="10.019735885041449" 
+              stroke="#ffffff" stroke-width="2" />
+        <circle cx="80" cy="50" r="5" fill="#ffffff" />
+        
+        <!-- Score value displayed below the needle -->
+        <text x="80" y="75" text-anchor="middle" font-size="12" fill="#ffffff">-2</text>
+        
+        <!-- Scale labels -->
+        <text x="20" y="65" text-anchor="middle" font-size="10" fill="#ff0000">-100</text>
+        <text x="140" y="65" text-anchor="middle" font-size="10" fill="#00ff00">+100</text>
+    </svg>
+    
+                </div>
+        
+                <div class="forecast-section">
+                    <div class="forecast-title">Weekly Forecast</div>
+                    <div class="price-grid">
+                        <div class="price-item">
+                            <div class="price-label">Open</div>
+                            <div class="price-value">1.28983</div>
+                        </div>
+                        <div class="price-item">
+                            <div class="price-label">High</div>
+                            <div class="price-value positive">1.30468</div>
+                        </div>
+                        <div class="price-item">
+                            <div class="price-label">Low</div>
+                            <div class="price-value negative">1.28298</div>
+                        </div>
+                        <div class="price-item">
+                            <div class="price-label">Close</div>
+                            <div class="price-value" style="color: #ff5252;">1.28836</div>
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="zones-section">
+                    <div class="forecast-title">H4 Supply and Demand Zones</div>
+                    <p>Weekly Bias: <span style="color: #ff5252; font-weight: bold;">Bearish</span></p>
+                
+                    <div class="zone-item" style="background-color: #ff000020; border-left: 4px solid #ff0000;">
+                        <div class="zone-header">
+                            <div style="color: #ff0000;">Strong Supply</div>
+                            <div>1.29817 - 1.30468</div>
+                        </div>
+                        <div>Primary sell zone with strongest bearish bias</div>
+                        <div class="zone-strategy">Sell on H4 bearish confirmation patterns in this zone</div>
+                    </div>
+                    
+                    <div class="zone-item" style="background-color: #ff6b6b20; border-left: 4px solid #ff6b6b;">
+                        <div class="zone-header">
+                            <div style="color: #ff6b6b;">Moderate Supply</div>
+                            <div>1.29383 - 1.29817</div>
+                        </div>
+                        <div>Secondary sell zone with moderate bearish bias</div>
+                        <div class="zone-strategy">Sell on H4 rejection of this zone with strong momentum</div>
+                    </div>
+                    
+                    <div class="zone-item" style="background-color: #9dff9d20; border-left: 4px solid #9dff9d;">
+                        <div class="zone-header">
+                            <div style="color: #9dff9d;">Demand</div>
+                            <div>1.28298 - 1.28949</div>
+                        </div>
+                        <div>Potential support/take profit zone</div>
+                        <div class="zone-strategy">Take profits or reduce position size in this zone</div>
+                    </div>
+                    </div></div>
+            <div class="pair-card">
+                <div class="pair-header">
+                    <div class="pair-name">EUR/CAD</div>
+                    <div class="sentiment-badge" style="background-color: #e0e0e0;">Neutral</div>
+                </div>
+                
+                <div class="gauge-container">
+                    
+    <svg xmlns="http://www.w3.org/2000/svg" width="160" height="100" viewBox="0 0 160 100">
+        <!-- Background path completely removed -->
+        
+        <!-- Gauge color ranges: red for negative, green for positive -->
+        <path d="M 20 50 A 60 60 0 0 1 80 10" stroke="#ff0000" stroke-width="10" fill="none" />
+        <path d="M 80 10 A 60 60 0 0 1 140 50" stroke="#00ff00" stroke-width="10" fill="none" />
+        
+        <!-- Gauge needle -->
+        <line x1="80" y1="50" x2="78.74362374339633" y2="10.019735885041449" 
+              stroke="#ffffff" stroke-width="2" />
+        <circle cx="80" cy="50" r="5" fill="#ffffff" />
+        
+        <!-- Score value displayed below the needle -->
+        <text x="80" y="75" text-anchor="middle" font-size="12" fill="#ffffff">-2</text>
+        
+        <!-- Scale labels -->
+        <text x="20" y="65" text-anchor="middle" font-size="10" fill="#ff0000">-100</text>
+        <text x="140" y="65" text-anchor="middle" font-size="10" fill="#00ff00">+100</text>
+    </svg>
+    
+                </div>
+        
+                <div class="forecast-section">
+                    <div class="forecast-title">Weekly Forecast</div>
+                    <div class="price-grid">
+                        <div class="price-item">
+                            <div class="price-label">Open</div>
+                            <div class="price-value">1.55934</div>
+                        </div>
+                        <div class="price-item">
+                            <div class="price-label">High</div>
+                            <div class="price-value positive">1.57586</div>
+                        </div>
+                        <div class="price-item">
+                            <div class="price-label">Low</div>
+                            <div class="price-value negative">1.54986</div>
+                        </div>
+                        <div class="price-item">
+                            <div class="price-label">Close</div>
+                            <div class="price-value" style="color: #ff5252;">1.55757</div>
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="zones-section">
+                    <div class="forecast-title">H4 Supply and Demand Zones</div>
+                    <p>Weekly Bias: <span style="color: #ff5252; font-weight: bold;">Bearish</span></p>
+                
+                    <div class="zone-item" style="background-color: #ff000020; border-left: 4px solid #ff0000;">
+                        <div class="zone-header">
+                            <div style="color: #ff0000;">Strong Supply</div>
+                            <div>1.56806 - 1.57586</div>
+                        </div>
+                        <div>Primary sell zone with strongest bearish bias</div>
+                        <div class="zone-strategy">Sell on H4 bearish confirmation patterns in this zone</div>
+                    </div>
+                    
+                    <div class="zone-item" style="background-color: #ff6b6b20; border-left: 4px solid #ff6b6b;">
+                        <div class="zone-header">
+                            <div style="color: #ff6b6b;">Moderate Supply</div>
+                            <div>1.56286 - 1.56806</div>
+                        </div>
+                        <div>Secondary sell zone with moderate bearish bias</div>
+                        <div class="zone-strategy">Sell on H4 rejection of this zone with strong momentum</div>
+                    </div>
+                    
+                    <div class="zone-item" style="background-color: #9dff9d20; border-left: 4px solid #9dff9d;">
+                        <div class="zone-header">
+                            <div style="color: #9dff9d;">Demand</div>
+                            <div>1.54986 - 1.55766</div>
+                        </div>
+                        <div>Potential support/take profit zone</div>
+                        <div class="zone-strategy">Take profits or reduce position size in this zone</div>
+                    </div>
+                    </div></div>
+            <div class="pair-card">
+                <div class="pair-header">
+                    <div class="pair-name">EUR/JPY</div>
+                    <div class="sentiment-badge" style="background-color: #e0e0e0;">Neutral</div>
+                </div>
+                
+                <div class="gauge-container">
+                    
+    <svg xmlns="http://www.w3.org/2000/svg" width="160" height="100" viewBox="0 0 160 100">
+        <!-- Background path completely removed -->
+        
+        <!-- Gauge color ranges: red for negative, green for positive -->
+        <path d="M 20 50 A 60 60 0 0 1 80 10" stroke="#ff0000" stroke-width="10" fill="none" />
+        <path d="M 80 10 A 60 60 0 0 1 140 50" stroke="#00ff00" stroke-width="10" fill="none" />
+        
+        <!-- Gauge needle -->
+        <line x1="80" y1="50" x2="78.74362374339633" y2="10.019735885041449" 
+              stroke="#ffffff" stroke-width="2" />
+        <circle cx="80" cy="50" r="5" fill="#ffffff" />
+        
+        <!-- Score value displayed below the needle -->
+        <text x="80" y="75" text-anchor="middle" font-size="12" fill="#ffffff">-2</text>
+        
+        <!-- Scale labels -->
+        <text x="20" y="65" text-anchor="middle" font-size="10" fill="#ff0000">-100</text>
+        <text x="140" y="65" text-anchor="middle" font-size="10" fill="#00ff00">+100</text>
+    </svg>
+    
+                </div>
+        
+                <div class="forecast-section">
+                    <div class="forecast-title">Weekly Forecast</div>
+                    <div class="price-grid">
+                        <div class="price-item">
+                            <div class="price-label">Open</div>
+                            <div class="price-value">161.09544</div>
+                        </div>
+                        <div class="price-item">
+                            <div class="price-label">High</div>
+                            <div class="price-value positive">163.16311</div>
+                        </div>
+                        <div class="price-item">
+                            <div class="price-label">Low</div>
+                            <div class="price-value negative">159.39769</div>
+                        </div>
+                        <div class="price-item">
+                            <div class="price-label">Close</div>
+                            <div class="price-value" style="color: #ff5252;">160.84039</div>
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="zones-section">
+                    <div class="forecast-title">H4 Supply and Demand Zones</div>
+                    <p>Weekly Bias: <span style="color: #ff5252; font-weight: bold;">Bearish</span></p>
+                
+                    <div class="zone-item" style="background-color: #ff000020; border-left: 4px solid #ff0000;">
+                        <div class="zone-header">
+                            <div style="color: #ff0000;">Strong Supply</div>
+                            <div>162.03348 - 163.16311</div>
+                        </div>
+                        <div>Primary sell zone with strongest bearish bias</div>
+                        <div class="zone-strategy">Sell on H4 bearish confirmation patterns in this zone</div>
+                    </div>
+                    
+                    <div class="zone-item" style="background-color: #ff6b6b20; border-left: 4px solid #ff6b6b;">
+                        <div class="zone-header">
+                            <div style="color: #ff6b6b;">Moderate Supply</div>
+                            <div>161.2804 - 162.03348</div>
+                        </div>
+                        <div>Secondary sell zone with moderate bearish bias</div>
+                        <div class="zone-strategy">Sell on H4 rejection of this zone with strong momentum</div>
+                    </div>
+                    
+                    <div class="zone-item" style="background-color: #9dff9d20; border-left: 4px solid #9dff9d;">
+                        <div class="zone-header">
+                            <div style="color: #9dff9d;">Demand</div>
+                            <div>159.39769 - 160.52732</div>
+                        </div>
+                        <div>Potential support/take profit zone</div>
+                        <div class="zone-strategy">Take profits or reduce position size in this zone</div>
+                    </div>
+                    </div></div>
+            <div class="pair-card">
+                <div class="pair-header">
+                    <div class="pair-name">USD/CAD</div>
+                    <div class="sentiment-badge" style="background-color: #e0e0e0;">Neutral</div>
+                </div>
+                
+                <div class="gauge-container">
+                    
+    <svg xmlns="http://www.w3.org/2000/svg" width="160" height="100" viewBox="0 0 160 100">
+        <!-- Background path completely removed -->
+        
+        <!-- Gauge color ranges: red for negative, green for positive -->
+        <path d="M 20 50 A 60 60 0 0 1 80 10" stroke="#ff0000" stroke-width="10" fill="none" />
+        <path d="M 80 10 A 60 60 0 0 1 140 50" stroke="#00ff00" stroke-width="10" fill="none" />
+        
+        <!-- Gauge needle -->
+        <line x1="80" y1="50" x2="76.86169172449215" y2="10.123302278550213" 
+              stroke="#ffffff" stroke-width="2" />
+        <circle cx="80" cy="50" r="5" fill="#ffffff" />
+        
+        <!-- Score value displayed below the needle -->
+        <text x="80" y="75" text-anchor="middle" font-size="12" fill="#ffffff">-5</text>
+        
+        <!-- Scale labels -->
+        <text x="20" y="65" text-anchor="middle" font-size="10" fill="#ff0000">-100</text>
+        <text x="140" y="65" text-anchor="middle" font-size="10" fill="#00ff00">+100</text>
+    </svg>
+    
+                </div>
+        
+                <div class="forecast-section">
+                    <div class="forecast-title">Weekly Forecast</div>
+                    <div class="price-grid">
+                        <div class="price-item">
+                            <div class="price-label">Open</div>
+                            <div class="price-value">1.42259</div>
+                        </div>
+                        <div class="price-item">
+                            <div class="price-label">High</div>
+                            <div class="price-value positive">1.43193</div>
+                        </div>
+                        <div class="price-item">
+                            <div class="price-label">Low</div>
+                            <div class="price-value negative">1.40929</div>
+                        </div>
+                        <div class="price-item">
+                            <div class="price-label">Close</div>
+                            <div class="price-value" style="color: #ff5252;">1.41867</div>
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="zones-section">
+                    <div class="forecast-title">H4 Supply and Demand Zones</div>
+                    <p>Weekly Bias: <span style="color: #ff5252; font-weight: bold;">Bearish</span></p>
+                
+                    <div class="zone-item" style="background-color: #ff000020; border-left: 4px solid #ff0000;">
+                        <div class="zone-header">
+                            <div style="color: #ff0000;">Strong Supply</div>
+                            <div>1.42514 - 1.43193</div>
+                        </div>
+                        <div>Primary sell zone with strongest bearish bias</div>
+                        <div class="zone-strategy">Sell on H4 bearish confirmation patterns in this zone</div>
+                    </div>
+                    
+                    <div class="zone-item" style="background-color: #ff6b6b20; border-left: 4px solid #ff6b6b;">
+                        <div class="zone-header">
+                            <div style="color: #ff6b6b;">Moderate Supply</div>
+                            <div>1.42061 - 1.42514</div>
+                        </div>
+                        <div>Secondary sell zone with moderate bearish bias</div>
+                        <div class="zone-strategy">Sell on H4 rejection of this zone with strong momentum</div>
+                    </div>
+                    
+                    <div class="zone-item" style="background-color: #9dff9d20; border-left: 4px solid #9dff9d;">
+                        <div class="zone-header">
+                            <div style="color: #9dff9d;">Demand</div>
+                            <div>1.40929 - 1.41608</div>
+                        </div>
+                        <div>Potential support/take profit zone</div>
+                        <div class="zone-strategy">Take profits or reduce position size in this zone</div>
+                    </div>
+                    </div></div>
+            <div class="pair-card">
+                <div class="pair-header">
+                    <div class="pair-name">USD/JPY</div>
+                    <div class="sentiment-badge" style="background-color: #e0e0e0;">Neutral</div>
+                </div>
+                
+                <div class="gauge-container">
+                    
+    <svg xmlns="http://www.w3.org/2000/svg" width="160" height="100" viewBox="0 0 160 100">
+        <!-- Background path completely removed -->
+        
+        <!-- Gauge color ranges: red for negative, green for positive -->
+        <path d="M 20 50 A 60 60 0 0 1 80 10" stroke="#ff0000" stroke-width="10" fill="none" />
+        <path d="M 80 10 A 60 60 0 0 1 140 50" stroke="#00ff00" stroke-width="10" fill="none" />
+        
+        <!-- Gauge needle -->
+        <line x1="80" y1="50" x2="76.86169172449215" y2="10.123302278550213" 
+              stroke="#ffffff" stroke-width="2" />
+        <circle cx="80" cy="50" r="5" fill="#ffffff" />
+        
+        <!-- Score value displayed below the needle -->
+        <text x="80" y="75" text-anchor="middle" font-size="12" fill="#ffffff">-5</text>
+        
+        <!-- Scale labels -->
+        <text x="20" y="65" text-anchor="middle" font-size="10" fill="#ff0000">-100</text>
+        <text x="140" y="65" text-anchor="middle" font-size="10" fill="#00ff00">+100</text>
+    </svg>
+    
+                </div>
+        
+                <div class="forecast-section">
+                    <div class="forecast-title">Weekly Forecast</div>
+                    <div class="price-grid">
+                        <div class="price-item">
+                            <div class="price-label">Open</div>
+                            <div class="price-value">146.98674</div>
+                        </div>
+                        <div class="price-item">
+                            <div class="price-label">High</div>
+                            <div class="price-value positive">148.0807</div>
+                        </div>
+                        <div class="price-item">
+                            <div class="price-label">Low</div>
+                            <div class="price-value negative">145.19666</div>
+                        </div>
+                        <div class="price-item">
+                            <div class="price-label">Close</div>
+                            <div class="price-value" style="color: #ff5252;">146.48946</div>
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="zones-section">
+                    <div class="forecast-title">H4 Supply and Demand Zones</div>
+                    <p>Weekly Bias: <span style="color: #ff5252; font-weight: bold;">Bearish</span></p>
+                
+                    <div class="zone-item" style="background-color: #ff000020; border-left: 4px solid #ff0000;">
+                        <div class="zone-header">
+                            <div style="color: #ff0000;">Strong Supply</div>
+                            <div>147.21549 - 148.0807</div>
+                        </div>
+                        <div>Primary sell zone with strongest bearish bias</div>
+                        <div class="zone-strategy">Sell on H4 bearish confirmation patterns in this zone</div>
+                    </div>
+                    
+                    <div class="zone-item" style="background-color: #ff6b6b20; border-left: 4px solid #ff6b6b;">
+                        <div class="zone-header">
+                            <div style="color: #ff6b6b;">Moderate Supply</div>
+                            <div>146.63868 - 147.21549</div>
+                        </div>
+                        <div>Secondary sell zone with moderate bearish bias</div>
+                        <div class="zone-strategy">Sell on H4 rejection of this zone with strong momentum</div>
+                    </div>
+                    
+                    <div class="zone-item" style="background-color: #9dff9d20; border-left: 4px solid #9dff9d;">
+                        <div class="zone-header">
+                            <div style="color: #9dff9d;">Demand</div>
+                            <div>145.19666 - 146.06187</div>
+                        </div>
+                        <div>Potential support/take profit zone</div>
+                        <div class="zone-strategy">Take profits or reduce position size in this zone</div>
+                    </div>
+                    </div></div>
+            <div class="pair-card">
+                <div class="pair-header">
+                    <div class="pair-name">GBP/CAD</div>
+                    <div class="sentiment-badge" style="background-color: #e0e0e0;">Neutral</div>
+                </div>
+                
+                <div class="gauge-container">
+                    
+    <svg xmlns="http://www.w3.org/2000/svg" width="160" height="100" viewBox="0 0 160 100">
+        <!-- Background path completely removed -->
+        
+        <!-- Gauge color ranges: red for negative, green for positive -->
+        <path d="M 20 50 A 60 60 0 0 1 80 10" stroke="#ff0000" stroke-width="10" fill="none" />
+        <path d="M 80 10 A 60 60 0 0 1 140 50" stroke="#00ff00" stroke-width="10" fill="none" />
+        
+        <!-- Gauge needle -->
+        <line x1="80" y1="50" x2="76.86169172449215" y2="10.123302278550213" 
+              stroke="#ffffff" stroke-width="2" />
+        <circle cx="80" cy="50" r="5" fill="#ffffff" />
+        
+        <!-- Score value displayed below the needle -->
+        <text x="80" y="75" text-anchor="middle" font-size="12" fill="#ffffff">-5</text>
+        
+        <!-- Scale labels -->
+        <text x="20" y="65" text-anchor="middle" font-size="10" fill="#ff0000">-100</text>
+        <text x="140" y="65" text-anchor="middle" font-size="10" fill="#00ff00">+100</text>
+    </svg>
+    
+                </div>
+        
+                <div class="forecast-section">
+                    <div class="forecast-title">Weekly Forecast</div>
+                    <div class="price-grid">
+                        <div class="price-item">
+                            <div class="price-label">Open</div>
+                            <div class="price-value">1.83495</div>
+                        </div>
+                        <div class="price-item">
+                            <div class="price-label">High</div>
+                            <div class="price-value positive">1.85068</div>
+                        </div>
+                        <div class="price-item">
+                            <div class="price-label">Low</div>
+                            <div class="price-value negative">1.8238</div>
+                        </div>
+                        <div class="price-item">
+                            <div class="price-label">Close</div>
+                            <div class="price-value" style="color: #ff5252;">1.83024</div>
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="zones-section">
+                    <div class="forecast-title">H4 Supply and Demand Zones</div>
+                    <p>Weekly Bias: <span style="color: #ff5252; font-weight: bold;">Bearish</span></p>
+                
+                    <div class="zone-item" style="background-color: #ff000020; border-left: 4px solid #ff0000;">
+                        <div class="zone-header">
+                            <div style="color: #ff0000;">Strong Supply</div>
+                            <div>1.84262 - 1.85068</div>
+                        </div>
+                        <div>Primary sell zone with strongest bearish bias</div>
+                        <div class="zone-strategy">Sell on H4 bearish confirmation patterns in this zone</div>
+                    </div>
+                    
+                    <div class="zone-item" style="background-color: #ff6b6b20; border-left: 4px solid #ff6b6b;">
+                        <div class="zone-header">
+                            <div style="color: #ff6b6b;">Moderate Supply</div>
+                            <div>1.83724 - 1.84262</div>
+                        </div>
+                        <div>Secondary sell zone with moderate bearish bias</div>
+                        <div class="zone-strategy">Sell on H4 rejection of this zone with strong momentum</div>
+                    </div>
+                    
+                    <div class="zone-item" style="background-color: #9dff9d20; border-left: 4px solid #9dff9d;">
+                        <div class="zone-header">
+                            <div style="color: #9dff9d;">Demand</div>
+                            <div>1.8238 - 1.83186</div>
+                        </div>
+                        <div>Potential support/take profit zone</div>
+                        <div class="zone-strategy">Take profits or reduce position size in this zone</div>
+                    </div>
+                    </div></div>
+            <div class="pair-card">
+                <div class="pair-header">
+                    <div class="pair-name">GBP/JPY</div>
+                    <div class="sentiment-badge" style="background-color: #ff5252;">Slightly Bearish</div>
+                </div>
+                
+                <div class="gauge-container">
+                    
+    <svg xmlns="http://www.w3.org/2000/svg" width="160" height="100" viewBox="0 0 160 100">
+        <!-- Background path completely removed -->
+        
+        <!-- Gauge color ranges: red for negative, green for positive -->
+        <path d="M 20 50 A 60 60 0 0 1 80 10" stroke="#ff0000" stroke-width="10" fill="none" />
+        <path d="M 80 10 A 60 60 0 0 1 140 50" stroke="#00ff00" stroke-width="10" fill="none" />
+        
+        <!-- Gauge needle -->
+        <line x1="80" y1="50" x2="76.23572347370019" y2="10.177516121749157" 
+              stroke="#ffffff" stroke-width="2" />
+        <circle cx="80" cy="50" r="5" fill="#ffffff" />
+        
+        <!-- Score value displayed below the needle -->
+        <text x="80" y="75" text-anchor="middle" font-size="12" fill="#ffffff">-6</text>
+        
+        <!-- Scale labels -->
+        <text x="20" y="65" text-anchor="middle" font-size="10" fill="#ff0000">-100</text>
+        <text x="140" y="65" text-anchor="middle" font-size="10" fill="#00ff00">+100</text>
+    </svg>
+    
+                </div>
+        
+                <div class="forecast-section">
+                    <div class="forecast-title">Weekly Forecast</div>
+                    <div class="price-grid">
+                        <div class="price-item">
+                            <div class="price-label">Open</div>
+                            <div class="price-value">189.58464</div>
+                        </div>
+                        <div class="price-item">
+                            <div class="price-label">High</div>
+                            <div class="price-value positive">191.68661</div>
+                        </div>
+                        <div class="price-item">
+                            <div class="price-label">Low</div>
+                            <div class="price-value negative">187.61803</div>
+                        </div>
+                        <div class="price-item">
+                            <div class="price-label">Close</div>
+                            <div class="price-value" style="color: #ff5252;">188.72721</div>
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="zones-section">
+                    <div class="forecast-title">H4 Supply and Demand Zones</div>
+                    <p>Weekly Bias: <span style="color: #ff5252; font-weight: bold;">Bearish</span></p>
+                
+                    <div class="zone-item" style="background-color: #ff000020; border-left: 4px solid #ff0000;">
+                        <div class="zone-header">
+                            <div style="color: #ff0000;">Strong Supply</div>
+                            <div>190.46604 - 191.68661</div>
+                        </div>
+                        <div>Primary sell zone with strongest bearish bias</div>
+                        <div class="zone-strategy">Sell on H4 bearish confirmation patterns in this zone</div>
+                    </div>
+                    
+                    <div class="zone-item" style="background-color: #ff6b6b20; border-left: 4px solid #ff6b6b;">
+                        <div class="zone-header">
+                            <div style="color: #ff6b6b;">Moderate Supply</div>
+                            <div>189.65232 - 190.46604</div>
+                        </div>
+                        <div>Secondary sell zone with moderate bearish bias</div>
+                        <div class="zone-strategy">Sell on H4 rejection of this zone with strong momentum</div>
+                    </div>
+                    
+                    <div class="zone-item" style="background-color: #9dff9d20; border-left: 4px solid #9dff9d;">
+                        <div class="zone-header">
+                            <div style="color: #9dff9d;">Demand</div>
+                            <div>187.61803 - 188.8386</div>
+                        </div>
+                        <div>Potential support/take profit zone</div>
+                        <div class="zone-strategy">Take profits or reduce position size in this zone</div>
+                    </div>
+                    </div></div>
+            <div class="pair-card">
+                <div class="pair-header">
+                    <div class="pair-name">EUR/CHF</div>
+                    <div class="sentiment-badge" style="background-color: #ff5252;">Slightly Bearish</div>
+                </div>
+                
+                <div class="gauge-container">
+                    
+    <svg xmlns="http://www.w3.org/2000/svg" width="160" height="100" viewBox="0 0 160 100">
+        <!-- Background path completely removed -->
+        
+        <!-- Gauge color ranges: red for negative, green for positive -->
+        <path d="M 20 50 A 60 60 0 0 1 80 10" stroke="#ff0000" stroke-width="10" fill="none" />
+        <path d="M 80 10 A 60 60 0 0 1 140 50" stroke="#00ff00" stroke-width="10" fill="none" />
+        
+        <!-- Gauge needle -->
+        <line x1="80" y1="50" x2="74.98672752300659" y2="10.315404763669058" 
+              stroke="#ffffff" stroke-width="2" />
+        <circle cx="80" cy="50" r="5" fill="#ffffff" />
+        
+        <!-- Score value displayed below the needle -->
+        <text x="80" y="75" text-anchor="middle" font-size="12" fill="#ffffff">-8</text>
+        
+        <!-- Scale labels -->
+        <text x="20" y="65" text-anchor="middle" font-size="10" fill="#ff0000">-100</text>
+        <text x="140" y="65" text-anchor="middle" font-size="10" fill="#00ff00">+100</text>
+    </svg>
+    
+                </div>
+        
+                <div class="forecast-section">
+                    <div class="forecast-title">Weekly Forecast</div>
+                    <div class="price-grid">
+                        <div class="price-item">
+                            <div class="price-label">Open</div>
+                            <div class="price-value">0.94323</div>
+                        </div>
+                        <div class="price-item">
+                            <div class="price-label">High</div>
+                            <div class="price-value positive">0.9493</div>
+                        </div>
+                        <div class="price-item">
+                            <div class="price-label">Low</div>
+                            <div class="price-value negative">0.93734</div>
+                        </div>
+                        <div class="price-item">
+                            <div class="price-label">Close</div>
+                            <div class="price-value" style="color: #ff5252;">0.93981</div>
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="zones-section">
+                    <div class="forecast-title">H4 Supply and Demand Zones</div>
+                    <p>Weekly Bias: <span style="color: #ff5252; font-weight: bold;">Bearish</span></p>
+                
+                    <div class="zone-item" style="background-color: #ff000020; border-left: 4px solid #ff0000;">
+                        <div class="zone-header">
+                            <div style="color: #ff0000;">Strong Supply</div>
+                            <div>0.94571 - 0.9493</div>
+                        </div>
+                        <div>Primary sell zone with strongest bearish bias</div>
+                        <div class="zone-strategy">Sell on H4 bearish confirmation patterns in this zone</div>
+                    </div>
+                    
+                    <div class="zone-item" style="background-color: #ff6b6b20; border-left: 4px solid #ff6b6b;">
+                        <div class="zone-header">
+                            <div style="color: #ff6b6b;">Moderate Supply</div>
+                            <div>0.94332 - 0.94571</div>
+                        </div>
+                        <div>Secondary sell zone with moderate bearish bias</div>
+                        <div class="zone-strategy">Sell on H4 rejection of this zone with strong momentum</div>
+                    </div>
+                    
+                    <div class="zone-item" style="background-color: #9dff9d20; border-left: 4px solid #9dff9d;">
+                        <div class="zone-header">
+                            <div style="color: #9dff9d;">Demand</div>
+                            <div>0.93734 - 0.94093</div>
+                        </div>
+                        <div>Potential support/take profit zone</div>
+                        <div class="zone-strategy">Take profits or reduce position size in this zone</div>
+                    </div>
+                    </div></div>
+            <div class="pair-card">
+                <div class="pair-header">
+                    <div class="pair-name">AUD/NZD</div>
+                    <div class="sentiment-badge" style="background-color: #ff5252;">Slightly Bearish</div>
+                </div>
+                
+                <div class="gauge-container">
+                    
+    <svg xmlns="http://www.w3.org/2000/svg" width="160" height="100" viewBox="0 0 160 100">
+        <!-- Background path completely removed -->
+        
+        <!-- Gauge color ranges: red for negative, green for positive -->
+        <path d="M 20 50 A 60 60 0 0 1 80 10" stroke="#ff0000" stroke-width="10" fill="none" />
+        <path d="M 80 10 A 60 60 0 0 1 140 50" stroke="#00ff00" stroke-width="10" fill="none" />
+        
+        <!-- Gauge needle -->
+        <line x1="80" y1="50" x2="74.98672752300659" y2="10.315404763669058" 
+              stroke="#ffffff" stroke-width="2" />
+        <circle cx="80" cy="50" r="5" fill="#ffffff" />
+        
+        <!-- Score value displayed below the needle -->
+        <text x="80" y="75" text-anchor="middle" font-size="12" fill="#ffffff">-8</text>
+        
+        <!-- Scale labels -->
+        <text x="20" y="65" text-anchor="middle" font-size="10" fill="#ff0000">-100</text>
+        <text x="140" y="65" text-anchor="middle" font-size="10" fill="#00ff00">+100</text>
+    </svg>
+    
+                </div>
+        
+                <div class="forecast-section">
+                    <div class="forecast-title">Weekly Forecast</div>
+                    <div class="price-grid">
+                        <div class="price-item">
+                            <div class="price-label">Open</div>
+                            <div class="price-value">1.07955</div>
+                        </div>
+                        <div class="price-item">
+                            <div class="price-label">High</div>
+                            <div class="price-value positive">1.08273</div>
+                        </div>
+                        <div class="price-item">
+                            <div class="price-label">Low</div>
+                            <div class="price-value negative">1.07437</div>
+                        </div>
+                        <div class="price-item">
+                            <div class="price-label">Close</div>
+                            <div class="price-value" style="color: #ff5252;">1.0772</div>
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="zones-section">
+                    <div class="forecast-title">H4 Supply and Demand Zones</div>
+                    <p>Weekly Bias: <span style="color: #ff5252; font-weight: bold;">Bearish</span></p>
+                
+                    <div class="zone-item" style="background-color: #ff000020; border-left: 4px solid #ff0000;">
+                        <div class="zone-header">
+                            <div style="color: #ff0000;">Strong Supply</div>
+                            <div>1.08022 - 1.08273</div>
+                        </div>
+                        <div>Primary sell zone with strongest bearish bias</div>
+                        <div class="zone-strategy">Sell on H4 bearish confirmation patterns in this zone</div>
+                    </div>
+                    
+                    <div class="zone-item" style="background-color: #ff6b6b20; border-left: 4px solid #ff6b6b;">
+                        <div class="zone-header">
+                            <div style="color: #ff6b6b;">Moderate Supply</div>
+                            <div>1.07855 - 1.08022</div>
+                        </div>
+                        <div>Secondary sell zone with moderate bearish bias</div>
+                        <div class="zone-strategy">Sell on H4 rejection of this zone with strong momentum</div>
+                    </div>
+                    
+                    <div class="zone-item" style="background-color: #9dff9d20; border-left: 4px solid #9dff9d;">
+                        <div class="zone-header">
+                            <div style="color: #9dff9d;">Demand</div>
+                            <div>1.07437 - 1.07688</div>
+                        </div>
+                        <div>Potential support/take profit zone</div>
+                        <div class="zone-strategy">Take profits or reduce position size in this zone</div>
+                    </div>
+                    </div></div>
+            <div class="pair-card">
+                <div class="pair-header">
+                    <div class="pair-name">NZD/USD</div>
+                    <div class="sentiment-badge" style="background-color: #ff5252;">Slightly Bearish</div>
+                </div>
+                
+                <div class="gauge-container">
+                    
+    <svg xmlns="http://www.w3.org/2000/svg" width="160" height="100" viewBox="0 0 160 100">
+        <!-- Background path completely removed -->
+        
+        <!-- Gauge color ranges: red for negative, green for positive -->
+        <path d="M 20 50 A 60 60 0 0 1 80 10" stroke="#ff0000" stroke-width="10" fill="none" />
+        <path d="M 80 10 A 60 60 0 0 1 140 50" stroke="#00ff00" stroke-width="10" fill="none" />
+        
+        <!-- Gauge needle -->
+        <line x1="80" y1="50" x2="73.74267905863083" y2="10.492457243752767" 
+              stroke="#ffffff" stroke-width="2" />
+        <circle cx="80" cy="50" r="5" fill="#ffffff" />
+        
+        <!-- Score value displayed below the needle -->
+        <text x="80" y="75" text-anchor="middle" font-size="12" fill="#ffffff">-10</text>
+        
+        <!-- Scale labels -->
+        <text x="20" y="65" text-anchor="middle" font-size="10" fill="#ff0000">-100</text>
+        <text x="140" y="65" text-anchor="middle" font-size="10" fill="#00ff00">+100</text>
+    </svg>
+    
+                </div>
+        
+                <div class="forecast-section">
+                    <div class="forecast-title">Weekly Forecast</div>
+                    <div class="price-grid">
+                        <div class="price-item">
+                            <div class="price-label">Open</div>
+                            <div class="price-value">0.55967</div>
+                        </div>
+                        <div class="price-item">
+                            <div class="price-label">High</div>
+                            <div class="price-value positive">0.56589</div>
+                        </div>
+                        <div class="price-item">
+                            <div class="price-label">Low</div>
+                            <div class="price-value negative">0.55306</div>
+                        </div>
+                        <div class="price-item">
+                            <div class="price-label">Close</div>
+                            <div class="price-value" style="color: #ff5252;">0.55501</div>
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="zones-section">
+                    <div class="forecast-title">H4 Supply and Demand Zones</div>
+                    <p>Weekly Bias: <span style="color: #ff5252; font-weight: bold;">Bearish</span></p>
+                
+                    <div class="zone-item" style="background-color: #ff000020; border-left: 4px solid #ff0000;">
+                        <div class="zone-header">
+                            <div style="color: #ff0000;">Strong Supply</div>
+                            <div>0.56204 - 0.56589</div>
+                        </div>
+                        <div>Primary sell zone with strongest bearish bias</div>
+                        <div class="zone-strategy">Sell on H4 bearish confirmation patterns in this zone</div>
+                    </div>
+                    
+                    <div class="zone-item" style="background-color: #ff6b6b20; border-left: 4px solid #ff6b6b;">
+                        <div class="zone-header">
+                            <div style="color: #ff6b6b;">Moderate Supply</div>
+                            <div>0.55947 - 0.56204</div>
+                        </div>
+                        <div>Secondary sell zone with moderate bearish bias</div>
+                        <div class="zone-strategy">Sell on H4 rejection of this zone with strong momentum</div>
+                    </div>
+                    
+                    <div class="zone-item" style="background-color: #9dff9d20; border-left: 4px solid #9dff9d;">
+                        <div class="zone-header">
+                            <div style="color: #9dff9d;">Demand</div>
+                            <div>0.55306 - 0.55691</div>
+                        </div>
+                        <div>Potential support/take profit zone</div>
+                        <div class="zone-strategy">Take profits or reduce position size in this zone</div>
+                    </div>
+                    </div></div>
+            <div class="pair-card">
+                <div class="pair-header">
+                    <div class="pair-name">USD/CHF</div>
+                    <div class="sentiment-badge" style="background-color: #ff5252;">Slightly Bearish</div>
+                </div>
+                
+                <div class="gauge-container">
+                    
+    <svg xmlns="http://www.w3.org/2000/svg" width="160" height="100" viewBox="0 0 160 100">
+        <!-- Background path completely removed -->
+        
+        <!-- Gauge color ranges: red for negative, green for positive -->
+        <path d="M 20 50 A 60 60 0 0 1 80 10" stroke="#ff0000" stroke-width="10" fill="none" />
+        <path d="M 80 10 A 60 60 0 0 1 140 50" stroke="#00ff00" stroke-width="10" fill="none" />
+        
+        <!-- Gauge needle -->
+        <line x1="80" y1="50" x2="73.74267905863083" y2="10.492457243752767" 
+              stroke="#ffffff" stroke-width="2" />
+        <circle cx="80" cy="50" r="5" fill="#ffffff" />
+        
+        <!-- Score value displayed below the needle -->
+        <text x="80" y="75" text-anchor="middle" font-size="12" fill="#ffffff">-10</text>
+        
+        <!-- Scale labels -->
+        <text x="20" y="65" text-anchor="middle" font-size="10" fill="#ff0000">-100</text>
+        <text x="140" y="65" text-anchor="middle" font-size="10" fill="#00ff00">+100</text>
+    </svg>
+    
+                </div>
+        
+                <div class="forecast-section">
+                    <div class="forecast-title">Weekly Forecast</div>
+                    <div class="price-grid">
+                        <div class="price-item">
+                            <div class="price-label">Open</div>
+                            <div class="price-value">0.86057</div>
+                        </div>
+                        <div class="price-item">
+                            <div class="price-label">High</div>
+                            <div class="price-value positive">0.86376</div>
+                        </div>
+                        <div class="price-item">
+                            <div class="price-label">Low</div>
+                            <div class="price-value negative">0.85023</div>
+                        </div>
+                        <div class="price-item">
+                            <div class="price-label">Close</div>
+                            <div class="price-value" style="color: #ff5252;">0.85585</div>
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="zones-section">
+                    <div class="forecast-title">H4 Supply and Demand Zones</div>
+                    <p>Weekly Bias: <span style="color: #ff5252; font-weight: bold;">Bearish</span></p>
+                
+                    <div class="zone-item" style="background-color: #ff000020; border-left: 4px solid #ff0000;">
+                        <div class="zone-header">
+                            <div style="color: #ff0000;">Strong Supply</div>
+                            <div>0.8597 - 0.86376</div>
+                        </div>
+                        <div>Primary sell zone with strongest bearish bias</div>
+                        <div class="zone-strategy">Sell on H4 bearish confirmation patterns in this zone</div>
+                    </div>
+                    
+                    <div class="zone-item" style="background-color: #ff6b6b20; border-left: 4px solid #ff6b6b;">
+                        <div class="zone-header">
+                            <div style="color: #ff6b6b;">Moderate Supply</div>
+                            <div>0.857 - 0.8597</div>
+                        </div>
+                        <div>Secondary sell zone with moderate bearish bias</div>
+                        <div class="zone-strategy">Sell on H4 rejection of this zone with strong momentum</div>
+                    </div>
+                    
+                    <div class="zone-item" style="background-color: #9dff9d20; border-left: 4px solid #9dff9d;">
+                        <div class="zone-header">
+                            <div style="color: #9dff9d;">Demand</div>
+                            <div>0.85023 - 0.85429</div>
+                        </div>
+                        <div>Potential support/take profit zone</div>
+                        <div class="zone-strategy">Take profits or reduce position size in this zone</div>
+                    </div>
+                    </div></div>
+            <div class="pair-card">
+                <div class="pair-header">
+                    <div class="pair-name">GBP/CHF</div>
+                    <div class="sentiment-badge" style="background-color: #ff5252;">Slightly Bearish</div>
+                </div>
+                
+                <div class="gauge-container">
+                    
+    <svg xmlns="http://www.w3.org/2000/svg" width="160" height="100" viewBox="0 0 160 100">
+        <!-- Background path completely removed -->
+        
+        <!-- Gauge color ranges: red for negative, green for positive -->
+        <path d="M 20 50 A 60 60 0 0 1 80 10" stroke="#ff0000" stroke-width="10" fill="none" />
+        <path d="M 80 10 A 60 60 0 0 1 140 50" stroke="#00ff00" stroke-width="10" fill="none" />
+        
+        <!-- Gauge needle -->
+        <line x1="80" y1="50" x2="73.12289402131945" y2="10.595616825561194" 
+              stroke="#ffffff" stroke-width="2" />
+        <circle cx="80" cy="50" r="5" fill="#ffffff" />
+        
+        <!-- Score value displayed below the needle -->
+        <text x="80" y="75" text-anchor="middle" font-size="12" fill="#ffffff">-11</text>
+        
+        <!-- Scale labels -->
+        <text x="20" y="65" text-anchor="middle" font-size="10" fill="#ff0000">-100</text>
+        <text x="140" y="65" text-anchor="middle" font-size="10" fill="#00ff00">+100</text>
+    </svg>
+    
+                </div>
+        
+                <div class="forecast-section">
+                    <div class="forecast-title">Weekly Forecast</div>
+                    <div class="price-grid">
+                        <div class="price-item">
+                            <div class="price-label">Open</div>
+                            <div class="price-value">1.1096</div>
+                        </div>
+                        <div class="price-item">
+                            <div class="price-label">High</div>
+                            <div class="price-value positive">1.11625</div>
+                        </div>
+                        <div class="price-item">
+                            <div class="price-label">Low</div>
+                            <div class="price-value negative">1.10214</div>
+                        </div>
+                        <div class="price-item">
+                            <div class="price-label">Close</div>
+                            <div class="price-value" style="color: #ff5252;">1.10393</div>
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="zones-section">
+                    <div class="forecast-title">H4 Supply and Demand Zones</div>
+                    <p>Weekly Bias: <span style="color: #ff5252; font-weight: bold;">Bearish</span></p>
+                
+                    <div class="zone-item" style="background-color: #ff000020; border-left: 4px solid #ff0000;">
+                        <div class="zone-header">
+                            <div style="color: #ff0000;">Strong Supply</div>
+                            <div>1.11202 - 1.11625</div>
+                        </div>
+                        <div>Primary sell zone with strongest bearish bias</div>
+                        <div class="zone-strategy">Sell on H4 bearish confirmation patterns in this zone</div>
+                    </div>
+                    
+                    <div class="zone-item" style="background-color: #ff6b6b20; border-left: 4px solid #ff6b6b;">
+                        <div class="zone-header">
+                            <div style="color: #ff6b6b;">Moderate Supply</div>
+                            <div>1.1092 - 1.11202</div>
+                        </div>
+                        <div>Secondary sell zone with moderate bearish bias</div>
+                        <div class="zone-strategy">Sell on H4 rejection of this zone with strong momentum</div>
+                    </div>
+                    
+                    <div class="zone-item" style="background-color: #9dff9d20; border-left: 4px solid #9dff9d;">
+                        <div class="zone-header">
+                            <div style="color: #9dff9d;">Demand</div>
+                            <div>1.10214 - 1.10637</div>
+                        </div>
+                        <div>Potential support/take profit zone</div>
+                        <div class="zone-strategy">Take profits or reduce position size in this zone</div>
+                    </div>
+                    </div></div>
+            <div class="pair-card">
+                <div class="pair-header">
+                    <div class="pair-name">NZD/CAD</div>
+                    <div class="sentiment-badge" style="background-color: #ff5252;">Slightly Bearish</div>
+                </div>
+                
+                <div class="gauge-container">
+                    
+    <svg xmlns="http://www.w3.org/2000/svg" width="160" height="100" viewBox="0 0 160 100">
+        <!-- Background path completely removed -->
+        
+        <!-- Gauge color ranges: red for negative, green for positive -->
+        <path d="M 20 50 A 60 60 0 0 1 80 10" stroke="#ff0000" stroke-width="10" fill="none" />
+        <path d="M 80 10 A 60 60 0 0 1 140 50" stroke="#00ff00" stroke-width="10" fill="none" />
+        
+        <!-- Gauge needle -->
+        <line x1="80" y1="50" x2="72.50480580413756" y2="10.70849883287341" 
+              stroke="#ffffff" stroke-width="2" />
+        <circle cx="80" cy="50" r="5" fill="#ffffff" />
+        
+        <!-- Score value displayed below the needle -->
+        <text x="80" y="75" text-anchor="middle" font-size="12" fill="#ffffff">-12</text>
+        
+        <!-- Scale labels -->
+        <text x="20" y="65" text-anchor="middle" font-size="10" fill="#ff0000">-100</text>
+        <text x="140" y="65" text-anchor="middle" font-size="10" fill="#00ff00">+100</text>
+    </svg>
+    
+                </div>
+        
+                <div class="forecast-section">
+                    <div class="forecast-title">Weekly Forecast</div>
+                    <div class="price-grid">
+                        <div class="price-item">
+                            <div class="price-label">Open</div>
+                            <div class="price-value">0.79624</div>
+                        </div>
+                        <div class="price-item">
+                            <div class="price-label">High</div>
+                            <div class="price-value positive">0.80116</div>
+                        </div>
+                        <div class="price-item">
+                            <div class="price-label">Low</div>
+                            <div class="price-value negative">0.78858</div>
+                        </div>
+                        <div class="price-item">
+                            <div class="price-label">Close</div>
+                            <div class="price-value" style="color: #ff5252;">0.79076</div>
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="zones-section">
+                    <div class="forecast-title">H4 Supply and Demand Zones</div>
+                    <p>Weekly Bias: <span style="color: #ff5252; font-weight: bold;">Bearish</span></p>
+                
+                    <div class="zone-item" style="background-color: #ff000020; border-left: 4px solid #ff0000;">
+                        <div class="zone-header">
+                            <div style="color: #ff0000;">Strong Supply</div>
+                            <div>0.79739 - 0.80116</div>
+                        </div>
+                        <div>Primary sell zone with strongest bearish bias</div>
+                        <div class="zone-strategy">Sell on H4 bearish confirmation patterns in this zone</div>
+                    </div>
+                    
+                    <div class="zone-item" style="background-color: #ff6b6b20; border-left: 4px solid #ff6b6b;">
+                        <div class="zone-header">
+                            <div style="color: #ff6b6b;">Moderate Supply</div>
+                            <div>0.79487 - 0.79739</div>
+                        </div>
+                        <div>Secondary sell zone with moderate bearish bias</div>
+                        <div class="zone-strategy">Sell on H4 rejection of this zone with strong momentum</div>
+                    </div>
+                    
+                    <div class="zone-item" style="background-color: #9dff9d20; border-left: 4px solid #9dff9d;">
+                        <div class="zone-header">
+                            <div style="color: #9dff9d;">Demand</div>
+                            <div>0.78858 - 0.79235</div>
+                        </div>
+                        <div>Potential support/take profit zone</div>
+                        <div class="zone-strategy">Take profits or reduce position size in this zone</div>
+                    </div>
+                    </div></div>
+            <div class="pair-card">
+                <div class="pair-header">
+                    <div class="pair-name">NZD/JPY</div>
+                    <div class="sentiment-badge" style="background-color: #ff5252;">Slightly Bearish</div>
+                </div>
+                
+                <div class="gauge-container">
+                    
+    <svg xmlns="http://www.w3.org/2000/svg" width="160" height="100" viewBox="0 0 160 100">
+        <!-- Background path completely removed -->
+        
+        <!-- Gauge color ranges: red for negative, green for positive -->
+        <path d="M 20 50 A 60 60 0 0 1 80 10" stroke="#ff0000" stroke-width="10" fill="none" />
+        <path d="M 80 10 A 60 60 0 0 1 140 50" stroke="#00ff00" stroke-width="10" fill="none" />
+        
+        <!-- Gauge needle -->
+        <line x1="80" y1="50" x2="71.88856691084644" y2="10.831075413790273" 
+              stroke="#ffffff" stroke-width="2" />
+        <circle cx="80" cy="50" r="5" fill="#ffffff" />
+        
+        <!-- Score value displayed below the needle -->
+        <text x="80" y="75" text-anchor="middle" font-size="12" fill="#ffffff">-13</text>
+        
+        <!-- Scale labels -->
+        <text x="20" y="65" text-anchor="middle" font-size="10" fill="#ff0000">-100</text>
+        <text x="140" y="65" text-anchor="middle" font-size="10" fill="#00ff00">+100</text>
+    </svg>
+    
+                </div>
+        
+                <div class="forecast-section">
+                    <div class="forecast-title">Weekly Forecast</div>
+                    <div class="price-grid">
+                        <div class="price-item">
+                            <div class="price-label">Open</div>
+                            <div class="price-value">82.26559</div>
+                        </div>
+                        <div class="price-item">
+                            <div class="price-label">High</div>
+                            <div class="price-value positive">83.11134</div>
+                        </div>
+                        <div class="price-item">
+                            <div class="price-label">Low</div>
+                            <div class="price-value negative">80.97139</div>
+                        </div>
+                        <div class="price-item">
+                            <div class="price-label">Close</div>
+                            <div class="price-value" style="color: #ff5252;">81.24865</div>
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="zones-section">
+                    <div class="forecast-title">H4 Supply and Demand Zones</div>
+                    <p>Weekly Bias: <span style="color: #ff5252; font-weight: bold;">Bearish</span></p>
+                
+                    <div class="zone-item" style="background-color: #ff000020; border-left: 4px solid #ff0000;">
+                        <div class="zone-header">
+                            <div style="color: #ff0000;">Strong Supply</div>
+                            <div>82.46935 - 83.11134</div>
+                        </div>
+                        <div>Primary sell zone with strongest bearish bias</div>
+                        <div class="zone-strategy">Sell on H4 bearish confirmation patterns in this zone</div>
+                    </div>
+                    
+                    <div class="zone-item" style="background-color: #ff6b6b20; border-left: 4px solid #ff6b6b;">
+                        <div class="zone-header">
+                            <div style="color: #ff6b6b;">Moderate Supply</div>
+                            <div>82.04136 - 82.46935</div>
+                        </div>
+                        <div>Secondary sell zone with moderate bearish bias</div>
+                        <div class="zone-strategy">Sell on H4 rejection of this zone with strong momentum</div>
+                    </div>
+                    
+                    <div class="zone-item" style="background-color: #9dff9d20; border-left: 4px solid #9dff9d;">
+                        <div class="zone-header">
+                            <div style="color: #9dff9d;">Demand</div>
+                            <div>80.97139 - 81.61338</div>
+                        </div>
+                        <div>Potential support/take profit zone</div>
+                        <div class="zone-strategy">Take profits or reduce position size in this zone</div>
+                    </div>
+                    </div></div>
+            <div class="pair-card">
+                <div class="pair-header">
+                    <div class="pair-name">AUD/USD</div>
+                    <div class="sentiment-badge" style="background-color: #ff5252;">Slightly Bearish</div>
+                </div>
+                
+                <div class="gauge-container">
+                    
+    <svg xmlns="http://www.w3.org/2000/svg" width="160" height="100" viewBox="0 0 160 100">
+        <!-- Background path completely removed -->
+        
+        <!-- Gauge color ranges: red for negative, green for positive -->
+        <path d="M 20 50 A 60 60 0 0 1 80 10" stroke="#ff0000" stroke-width="10" fill="none" />
+        <path d="M 80 10 A 60 60 0 0 1 140 50" stroke="#00ff00" stroke-width="10" fill="none" />
+        
+        <!-- Gauge needle -->
+        <line x1="80" y1="50" x2="70.66224479200527" y2="11.105188936368805" 
+              stroke="#ffffff" stroke-width="2" />
+        <circle cx="80" cy="50" r="5" fill="#ffffff" />
+        
+        <!-- Score value displayed below the needle -->
+        <text x="80" y="75" text-anchor="middle" font-size="12" fill="#ffffff">-15</text>
+        
+        <!-- Scale labels -->
+        <text x="20" y="65" text-anchor="middle" font-size="10" fill="#ff0000">-100</text>
+        <text x="140" y="65" text-anchor="middle" font-size="10" fill="#00ff00">+100</text>
+    </svg>
+    
+                </div>
+        
+                <div class="forecast-section">
+                    <div class="forecast-title">Weekly Forecast</div>
+                    <div class="price-grid">
+                        <div class="price-item">
+                            <div class="price-label">Open</div>
+                            <div class="price-value">0.60399</div>
+                        </div>
+                        <div class="price-item">
+                            <div class="price-label">High</div>
+                            <div class="price-value positive">0.61007</div>
+                        </div>
+                        <div class="price-item">
+                            <div class="price-label">Low</div>
+                            <div class="price-value negative">0.59609</div>
+                        </div>
+                        <div class="price-item">
+                            <div class="price-label">Close</div>
+                            <div class="price-value" style="color: #ff5252;">0.59611</div>
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="zones-section">
+                    <div class="forecast-title">H4 Supply and Demand Zones</div>
+                    <p>Weekly Bias: <span style="color: #ff5252; font-weight: bold;">Bearish</span></p>
+                
+                    <div class="zone-item" style="background-color: #ff000020; border-left: 4px solid #ff0000;">
+                        <div class="zone-header">
+                            <div style="color: #ff0000;">Strong Supply</div>
+                            <div>0.60588 - 0.61007</div>
+                        </div>
+                        <div>Primary sell zone with strongest bearish bias</div>
+                        <div class="zone-strategy">Sell on H4 bearish confirmation patterns in this zone</div>
+                    </div>
+                    
+                    <div class="zone-item" style="background-color: #ff6b6b20; border-left: 4px solid #ff6b6b;">
+                        <div class="zone-header">
+                            <div style="color: #ff6b6b;">Moderate Supply</div>
+                            <div>0.60308 - 0.60588</div>
+                        </div>
+                        <div>Secondary sell zone with moderate bearish bias</div>
+                        <div class="zone-strategy">Sell on H4 rejection of this zone with strong momentum</div>
+                    </div>
+                    
+                    <div class="zone-item" style="background-color: #9dff9d20; border-left: 4px solid #9dff9d;">
+                        <div class="zone-header">
+                            <div style="color: #9dff9d;">Demand</div>
+                            <div>0.59609 - 0.60028</div>
+                        </div>
+                        <div>Potential support/take profit zone</div>
+                        <div class="zone-strategy">Take profits or reduce position size in this zone</div>
+                    </div>
+                    </div></div>
+            <div class="pair-card">
+                <div class="pair-header">
+                    <div class="pair-name">AUD/CAD</div>
+                    <div class="sentiment-badge" style="background-color: #ff5252;">Bearish</div>
+                </div>
+                
+                <div class="gauge-container">
+                    
+    <svg xmlns="http://www.w3.org/2000/svg" width="160" height="100" viewBox="0 0 160 100">
+        <!-- Background path completely removed -->
+        
+        <!-- Gauge color ranges: red for negative, green for positive -->
+        <path d="M 20 50 A 60 60 0 0 1 80 10" stroke="#ff0000" stroke-width="10" fill="none" />
+        <path d="M 80 10 A 60 60 0 0 1 140 50" stroke="#00ff00" stroke-width="10" fill="none" />
+        
+        <!-- Gauge needle -->
+        <line x1="80" y1="50" x2="69.44513789462727" y2="11.417686876801092" 
+              stroke="#ffffff" stroke-width="2" />
+        <circle cx="80" cy="50" r="5" fill="#ffffff" />
+        
+        <!-- Score value displayed below the needle -->
+        <text x="80" y="75" text-anchor="middle" font-size="12" fill="#ffffff">-17</text>
+        
+        <!-- Scale labels -->
+        <text x="20" y="65" text-anchor="middle" font-size="10" fill="#ff0000">-100</text>
+        <text x="140" y="65" text-anchor="middle" font-size="10" fill="#00ff00">+100</text>
+    </svg>
+    
+                </div>
+        
+                <div class="forecast-section">
+                    <div class="forecast-title">Weekly Forecast</div>
+                    <div class="price-grid">
+                        <div class="price-item">
+                            <div class="price-label">Open</div>
+                            <div class="price-value">0.85951</div>
+                        </div>
+                        <div class="price-item">
+                            <div class="price-label">High</div>
+                            <div class="price-value positive">0.86391</div>
+                        </div>
+                        <div class="price-item">
+                            <div class="price-label">Low</div>
+                            <div class="price-value negative">0.85096</div>
+                        </div>
+                        <div class="price-item">
+                            <div class="price-label">Close</div>
+                            <div class="price-value" style="color: #ff5252;">0.85133</div>
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="zones-section">
+                    <div class="forecast-title">H4 Supply and Demand Zones</div>
+                    <p>Weekly Bias: <span style="color: #ff5252; font-weight: bold;">Bearish</span></p>
+                
+                    <div class="zone-item" style="background-color: #ff000020; border-left: 4px solid #ff0000;">
+                        <div class="zone-header">
+                            <div style="color: #ff0000;">Strong Supply</div>
+                            <div>0.86002 - 0.86391</div>
+                        </div>
+                        <div>Primary sell zone with strongest bearish bias</div>
+                        <div class="zone-strategy">Sell on H4 bearish confirmation patterns in this zone</div>
+                    </div>
+                    
+                    <div class="zone-item" style="background-color: #ff6b6b20; border-left: 4px solid #ff6b6b;">
+                        <div class="zone-header">
+                            <div style="color: #ff6b6b;">Moderate Supply</div>
+                            <div>0.85744 - 0.86002</div>
+                        </div>
+                        <div>Secondary sell zone with moderate bearish bias</div>
+                        <div class="zone-strategy">Sell on H4 rejection of this zone with strong momentum</div>
+                    </div>
+                    
+                    <div class="zone-item" style="background-color: #9dff9d20; border-left: 4px solid #9dff9d;">
+                        <div class="zone-header">
+                            <div style="color: #9dff9d;">Demand</div>
+                            <div>0.85096 - 0.85485</div>
+                        </div>
+                        <div>Potential support/take profit zone</div>
+                        <div class="zone-strategy">Take profits or reduce position size in this zone</div>
+                    </div>
+                    </div></div>
+            <div class="pair-card">
+                <div class="pair-header">
+                    <div class="pair-name">AUD/JPY</div>
+                    <div class="sentiment-badge" style="background-color: #ff5252;">Bearish</div>
+                </div>
+                
+                <div class="gauge-container">
+                    
+    <svg xmlns="http://www.w3.org/2000/svg" width="160" height="100" viewBox="0 0 160 100">
+        <!-- Background path completely removed -->
+        
+        <!-- Gauge color ranges: red for negative, green for positive -->
+        <path d="M 20 50 A 60 60 0 0 1 80 10" stroke="#ff0000" stroke-width="10" fill="none" />
+        <path d="M 80 10 A 60 60 0 0 1 140 50" stroke="#00ff00" stroke-width="10" fill="none" />
+        
+        <!-- Gauge needle -->
+        <line x1="80" y1="50" x2="69.44513789462727" y2="11.417686876801092" 
+              stroke="#ffffff" stroke-width="2" />
+        <circle cx="80" cy="50" r="5" fill="#ffffff" />
+        
+        <!-- Score value displayed below the needle -->
+        <text x="80" y="75" text-anchor="middle" font-size="12" fill="#ffffff">-17</text>
+        
+        <!-- Scale labels -->
+        <text x="20" y="65" text-anchor="middle" font-size="10" fill="#ff0000">-100</text>
+        <text x="140" y="65" text-anchor="middle" font-size="10" fill="#00ff00">+100</text>
+    </svg>
+    
+                </div>
+        
+                <div class="forecast-section">
+                    <div class="forecast-title">Weekly Forecast</div>
+                    <div class="price-grid">
+                        <div class="price-item">
+                            <div class="price-label">Open</div>
+                            <div class="price-value">88.80629</div>
+                        </div>
+                        <div class="price-item">
+                            <div class="price-label">High</div>
+                            <div class="price-value positive">89.65538</div>
+                        </div>
+                        <div class="price-item">
+                            <div class="price-label">Low</div>
+                            <div class="price-value negative">87.2081</div>
+                        </div>
+                        <div class="price-item">
+                            <div class="price-label">Close</div>
+                            <div class="price-value" style="color: #ff5252;">87.26016</div>
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="zones-section">
+                    <div class="forecast-title">H4 Supply and Demand Zones</div>
+                    <p>Weekly Bias: <span style="color: #ff5252; font-weight: bold;">Bearish</span></p>
+                
+                    <div class="zone-item" style="background-color: #ff000020; border-left: 4px solid #ff0000;">
+                        <div class="zone-header">
+                            <div style="color: #ff0000;">Strong Supply</div>
+                            <div>88.9212 - 89.65538</div>
+                        </div>
+                        <div>Primary sell zone with strongest bearish bias</div>
+                        <div class="zone-strategy">Sell on H4 bearish confirmation patterns in this zone</div>
+                    </div>
+                    
+                    <div class="zone-item" style="background-color: #ff6b6b20; border-left: 4px solid #ff6b6b;">
+                        <div class="zone-header">
+                            <div style="color: #ff6b6b;">Moderate Supply</div>
+                            <div>88.43174 - 88.9212</div>
+                        </div>
+                        <div>Secondary sell zone with moderate bearish bias</div>
+                        <div class="zone-strategy">Sell on H4 rejection of this zone with strong momentum</div>
+                    </div>
+                    
+                    <div class="zone-item" style="background-color: #9dff9d20; border-left: 4px solid #9dff9d;">
+                        <div class="zone-header">
+                            <div style="color: #9dff9d;">Demand</div>
+                            <div>87.2081 - 87.94228</div>
+                        </div>
+                        <div>Potential support/take profit zone</div>
+                        <div class="zone-strategy">Take profits or reduce position size in this zone</div>
+                    </div>
+                    </div></div>
+            <div class="pair-card">
+                <div class="pair-header">
+                    <div class="pair-name">NZD/CHF</div>
+                    <div class="sentiment-badge" style="background-color: #ff5252;">Bearish</div>
+                </div>
+                
+                <div class="gauge-container">
+                    
+    <svg xmlns="http://www.w3.org/2000/svg" width="160" height="100" viewBox="0 0 160 100">
+        <!-- Background path completely removed -->
+        
+        <!-- Gauge color ranges: red for negative, green for positive -->
+        <path d="M 20 50 A 60 60 0 0 1 80 10" stroke="#ff0000" stroke-width="10" fill="none" />
+        <path d="M 80 10 A 60 60 0 0 1 140 50" stroke="#00ff00" stroke-width="10" fill="none" />
+        
+        <!-- Gauge needle -->
+        <line x1="80" y1="50" x2="69.44513789462727" y2="11.417686876801092" 
+              stroke="#ffffff" stroke-width="2" />
+        <circle cx="80" cy="50" r="5" fill="#ffffff" />
+        
+        <!-- Score value displayed below the needle -->
+        <text x="80" y="75" text-anchor="middle" font-size="12" fill="#ffffff">-17</text>
+        
+        <!-- Scale labels -->
+        <text x="20" y="65" text-anchor="middle" font-size="10" fill="#ff0000">-100</text>
+        <text x="140" y="65" text-anchor="middle" font-size="10" fill="#00ff00">+100</text>
+    </svg>
+    
+                </div>
+        
+                <div class="forecast-section">
+                    <div class="forecast-title">Weekly Forecast</div>
+                    <div class="price-grid">
+                        <div class="price-item">
+                            <div class="price-label">Open</div>
+                            <div class="price-value">0.48171</div>
+                        </div>
+                        <div class="price-item">
+                            <div class="price-label">High</div>
+                            <div class="price-value positive">0.48473</div>
+                        </div>
+                        <div class="price-item">
+                            <div class="price-label">Low</div>
+                            <div class="price-value negative">0.47551</div>
+                        </div>
+                        <div class="price-item">
+                            <div class="price-label">Close</div>
+                            <div class="price-value" style="color: #ff5252;">0.47592</div>
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="zones-section">
+                    <div class="forecast-title">H4 Supply and Demand Zones</div>
+                    <p>Weekly Bias: <span style="color: #ff5252; font-weight: bold;">Bearish</span></p>
+                
+                    <div class="zone-item" style="background-color: #ff000020; border-left: 4px solid #ff0000;">
+                        <div class="zone-header">
+                            <div style="color: #ff0000;">Strong Supply</div>
+                            <div>0.48196 - 0.48473</div>
+                        </div>
+                        <div>Primary sell zone with strongest bearish bias</div>
+                        <div class="zone-strategy">Sell on H4 bearish confirmation patterns in this zone</div>
+                    </div>
+                    
+                    <div class="zone-item" style="background-color: #ff6b6b20; border-left: 4px solid #ff6b6b;">
+                        <div class="zone-header">
+                            <div style="color: #ff6b6b;">Moderate Supply</div>
+                            <div>0.48012 - 0.48196</div>
+                        </div>
+                        <div>Secondary sell zone with moderate bearish bias</div>
+                        <div class="zone-strategy">Sell on H4 rejection of this zone with strong momentum</div>
+                    </div>
+                    
+                    <div class="zone-item" style="background-color: #9dff9d20; border-left: 4px solid #9dff9d;">
+                        <div class="zone-header">
+                            <div style="color: #9dff9d;">Demand</div>
+                            <div>0.47551 - 0.47828</div>
+                        </div>
+                        <div>Potential support/take profit zone</div>
+                        <div class="zone-strategy">Take profits or reduce position size in this zone</div>
+                    </div>
+                    </div></div>
+            <div class="pair-card">
+                <div class="pair-header">
+                    <div class="pair-name">AUD/CHF</div>
+                    <div class="sentiment-badge" style="background-color: #ff5252;">Bearish</div>
+                </div>
+                
+                <div class="gauge-container">
+                    
+    <svg xmlns="http://www.w3.org/2000/svg" width="160" height="100" viewBox="0 0 160 100">
+        <!-- Background path completely removed -->
+        
+        <!-- Gauge color ranges: red for negative, green for positive -->
+        <path d="M 20 50 A 60 60 0 0 1 80 10" stroke="#ff0000" stroke-width="10" fill="none" />
+        <path d="M 80 10 A 60 60 0 0 1 140 50" stroke="#00ff00" stroke-width="10" fill="none" />
+        
+        <!-- Gauge needle -->
+        <line x1="80" y1="50" x2="67.04336402673407" y2="12.156564845983247" 
+              stroke="#ffffff" stroke-width="2" />
+        <circle cx="80" cy="50" r="5" fill="#ffffff" />
+        
+        <!-- Score value displayed below the needle -->
+        <text x="80" y="75" text-anchor="middle" font-size="12" fill="#ffffff">-21</text>
+        
+        <!-- Scale labels -->
+        <text x="20" y="65" text-anchor="middle" font-size="10" fill="#ff0000">-100</text>
+        <text x="140" y="65" text-anchor="middle" font-size="10" fill="#00ff00">+100</text>
+    </svg>
+    
+                </div>
+        
+                <div class="forecast-section">
+                    <div class="forecast-title">Weekly Forecast</div>
+                    <div class="price-grid">
+                        <div class="price-item">
+                            <div class="price-label">Open</div>
+                            <div class="price-value">0.51984</div>
+                        </div>
+                        <div class="price-item">
+                            <div class="price-label">High</div>
+                            <div class="price-value positive">0.52311</div>
+                        </div>
+                        <div class="price-item">
+                            <div class="price-label">Low</div>
+                            <div class="price-value negative">0.51123</div>
+                        </div>
+                        <div class="price-item">
+                            <div class="price-label">Close</div>
+                            <div class="price-value" style="color: #ff5252;">0.51123</div>
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="zones-section">
+                    <div class="forecast-title">H4 Supply and Demand Zones</div>
+                    <p>Weekly Bias: <span style="color: #ff5252; font-weight: bold;">Bearish</span></p>
+                
+                    <div class="zone-item" style="background-color: #ff000020; border-left: 4px solid #ff0000;">
+                        <div class="zone-header">
+                            <div style="color: #ff0000;">Strong Supply</div>
+                            <div>0.51955 - 0.52311</div>
+                        </div>
+                        <div>Primary sell zone with strongest bearish bias</div>
+                        <div class="zone-strategy">Sell on H4 bearish confirmation patterns in this zone</div>
+                    </div>
+                    
+                    <div class="zone-item" style="background-color: #ff6b6b20; border-left: 4px solid #ff6b6b;">
+                        <div class="zone-header">
+                            <div style="color: #ff6b6b;">Moderate Supply</div>
+                            <div>0.51717 - 0.51955</div>
+                        </div>
+                        <div>Secondary sell zone with moderate bearish bias</div>
+                        <div class="zone-strategy">Sell on H4 rejection of this zone with strong momentum</div>
+                    </div>
+                    
+                    <div class="zone-item" style="background-color: #9dff9d20; border-left: 4px solid #9dff9d;">
+                        <div class="zone-header">
+                            <div style="color: #9dff9d;">Demand</div>
+                            <div>0.51123 - 0.51479</div>
+                        </div>
+                        <div>Potential support/take profit zone</div>
+                        <div class="zone-strategy">Take profits or reduce position size in this zone</div>
+                    </div>
+                    </div></div>
+            </div>
+        </div>
+    </body>
+    </html>
+    
